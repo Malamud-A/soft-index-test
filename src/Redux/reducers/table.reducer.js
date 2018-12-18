@@ -2,8 +2,8 @@ import * as constants from '../constants';
 
 const initialState = {
     records: [],
-    filter: 'name',
-    order: 'desc',
+    sortBy: 'firstName',
+    order: 'asc',
 };
 
 export default (state = initialState, action) => {
@@ -22,6 +22,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 records: action.payload,
+            };
+        case constants.SORT_TABLE:
+            return {
+                ...state,
+                ...action.payload,
             };
         default:
             return state;

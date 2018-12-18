@@ -4,12 +4,17 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 class Index extends Component {
 
-    componentDidMount() {
-        this.props.getTable();
+    async componentDidMount() {
+        await this.props.getTable();
+        await this.props.sortTable(this.props.sortBy, false);
     }
 
     handleRecordDelete = e => {
         this.props.deleteRecord(e.currentTarget.dataset.id);
+    };
+
+    handleTableSort = e => {
+        this.props.sortTable(e.currentTarget.dataset.fieldName);
     };
 
     render() {
@@ -17,16 +22,17 @@ class Index extends Component {
             <table cellPadding="0" cellSpacing="0">
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Phone Number</th>
-                        <th>Age</th>
+                        <th onClick={this.handleTableSort} data-field-name="firstName">First Name</th>
+                        <th onClick={this.handleTableSort} data-field-name="lastName">Last Name</th>
+                        <th onClick={this.handleTableSort} data-field-name="phone">Phone Number</th>
+                        <th onClick={this.handleTableSort} data-field-name="age">Age</th>
                         <th/>
                     </tr>
                 </thead>
                 <tbody>
-                {this.props.records.map(record => (
-                    <tr key={`record-${record.id}`}>
+                {console.log(this.props.records)}
+                {this.props.records.map((record, index) => (
+                    <tr key={`record-${index}`}>
                         <td>{record.firstName}</td>
                         <td>{record.lastName}</td>
                         <td>{record.phone}</td>
