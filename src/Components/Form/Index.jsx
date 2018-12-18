@@ -31,38 +31,40 @@ class Index extends Component {
 
     render() {
         return (
-            <form>
-                <InputField
-                    handleChange={this.handleInputChange}
-                    name="firstName"
-                    id="firstNameField"
-                    label="First Name"
-                    value={this.state.firstName}
-                />
-                <InputField
-                    handleChange={this.handleInputChange}
-                    name="lastName"
-                    id="lastNameField"
-                    label="Last Name"
-                    value={this.state.lastName}
-                />
-                <InputField
-                    handleChange={this.handleInputChange}
-                    name="phone"
-                    id="phoneField"
-                    label="Phone"
-                    value={this.state.phone}
-                />
-                <InputField
-                    handleChange={this.handleInputChange}
-                    name="age"
-                    id="ageField"
-                    label="Age"
-                    type="number"
-                    value={this.state.age}
-                />
-                <button onClick={this.handleSubmit} type="submit">Add Name</button>
-            </form>
+            <div className="add-form">
+                <form>
+                    <InputField
+                        handleChange={this.handleInputChange}
+                        name="firstName"
+                        id="firstNameField"
+                        label="First Name"
+                        value={this.state.firstName}
+                    />
+                    <InputField
+                        handleChange={this.handleInputChange}
+                        name="lastName"
+                        id="lastNameField"
+                        label="Last Name"
+                        value={this.state.lastName}
+                    />
+                    <InputField
+                        handleChange={this.handleInputChange}
+                        name="phone"
+                        id="phoneField"
+                        label="Phone"
+                        value={this.state.phone}
+                    />
+                    <InputField
+                        handleChange={this.handleInputChange}
+                        name="age"
+                        id="ageField"
+                        label="Age"
+                        type="number"
+                        value={this.state.age}
+                    />
+                    <button onClick={this.handleSubmit} type="submit">Add Record</button>
+                </form>
+            </div>
         );
     }
 }

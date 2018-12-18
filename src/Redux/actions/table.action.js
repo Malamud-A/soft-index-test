@@ -25,7 +25,7 @@ export const deleteRecord = id => (dispatch) => {
 export const sortTable = (sortBy, changeOrder = true) => (dispatch, getState) => {
     const prevSortBy = getState().table.sortBy;
     const {order, records} = getState().table;
-    const sortedRecords = records.sort((a, b) => {
+    const sortedRecords = Array.from(records).sort((a, b) => {
         if (a[sortBy] > b[sortBy]) return 1;
         if (a[sortBy] < b[sortBy]) return -1;
         return 0;
